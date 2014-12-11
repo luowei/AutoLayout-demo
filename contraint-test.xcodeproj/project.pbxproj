@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA2A55C21A39DA8700D58986 /* KeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2A55C11A39DA8700D58986 /* KeyboardView.m */; };
+		EA2A55C41A39DAAE00D58986 /* KeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA2A55C31A39DAAE00D58986 /* KeyboardView.xib */; };
 		EA87D5191A39AB200086C6F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA87D5181A39AB200086C6F7 /* main.m */; };
 		EA87D51C1A39AB200086C6F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA87D51B1A39AB200086C6F7 /* AppDelegate.m */; };
 		EA87D51F1A39AB200086C6F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA87D51E1A39AB200086C6F7 /* ViewController.m */; };
@@ -14,6 +16,8 @@
 		EA87D5241A39AB200086C6F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA87D5231A39AB200086C6F7 /* Images.xcassets */; };
 		EA87D5271A39AB200086C6F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA87D5251A39AB200086C6F7 /* LaunchScreen.xib */; };
 		EA87D5331A39AB200086C6F7 /* contraint_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA87D5321A39AB200086C6F7 /* contraint_testTests.m */; };
+		EA87D53E1A39AB5B0086C6F7 /* MyInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA87D53D1A39AB5B0086C6F7 /* MyInputView.m */; };
+		EA87D5411A39AB740086C6F7 /* InputBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA87D5401A39AB740086C6F7 /* InputBackgroundView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA2A55C01A39DA8700D58986 /* KeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardView.h; sourceTree = "<group>"; };
+		EA2A55C11A39DA8700D58986 /* KeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardView.m; sourceTree = "<group>"; };
+		EA2A55C31A39DAAE00D58986 /* KeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KeyboardView.xib; path = ../KeyboardView.xib; sourceTree = "<group>"; };
 		EA87D5131A39AB200086C6F7 /* contraint-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "contraint-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA87D5171A39AB200086C6F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA87D5181A39AB200086C6F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +47,10 @@
 		EA87D52C1A39AB200086C6F7 /* contraint-testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "contraint-testTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA87D5311A39AB200086C6F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA87D5321A39AB200086C6F7 /* contraint_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = contraint_testTests.m; sourceTree = "<group>"; };
+		EA87D53C1A39AB5B0086C6F7 /* MyInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInputView.h; sourceTree = "<group>"; };
+		EA87D53D1A39AB5B0086C6F7 /* MyInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInputView.m; sourceTree = "<group>"; };
+		EA87D53F1A39AB740086C6F7 /* InputBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputBackgroundView.h; sourceTree = "<group>"; };
+		EA87D5401A39AB740086C6F7 /* InputBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputBackgroundView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +100,13 @@
 				EA87D5231A39AB200086C6F7 /* Images.xcassets */,
 				EA87D5251A39AB200086C6F7 /* LaunchScreen.xib */,
 				EA87D5161A39AB200086C6F7 /* Supporting Files */,
+				EA87D53C1A39AB5B0086C6F7 /* MyInputView.h */,
+				EA87D53D1A39AB5B0086C6F7 /* MyInputView.m */,
+				EA87D53F1A39AB740086C6F7 /* InputBackgroundView.h */,
+				EA87D5401A39AB740086C6F7 /* InputBackgroundView.m */,
+				EA2A55C01A39DA8700D58986 /* KeyboardView.h */,
+				EA2A55C11A39DA8700D58986 /* KeyboardView.m */,
+				EA2A55C31A39DAAE00D58986 /* KeyboardView.xib */,
 			);
 			path = "contraint-test";
 			sourceTree = "<group>";
@@ -200,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA87D5221A39AB200086C6F7 /* Main.storyboard in Resources */,
+				EA2A55C41A39DAAE00D58986 /* KeyboardView.xib in Resources */,
 				EA87D5271A39AB200086C6F7 /* LaunchScreen.xib in Resources */,
 				EA87D5241A39AB200086C6F7 /* Images.xcassets in Resources */,
 			);
@@ -220,6 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA87D51F1A39AB200086C6F7 /* ViewController.m in Sources */,
+				EA87D53E1A39AB5B0086C6F7 /* MyInputView.m in Sources */,
+				EA87D5411A39AB740086C6F7 /* InputBackgroundView.m in Sources */,
+				EA2A55C21A39DA8700D58986 /* KeyboardView.m in Sources */,
 				EA87D51C1A39AB200086C6F7 /* AppDelegate.m in Sources */,
 				EA87D5191A39AB200086C6F7 /* main.m in Sources */,
 			);
@@ -414,6 +436,7 @@
 				EA87D5381A39AB200086C6F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EA87D5391A39AB200086C6F7 /* Build configuration list for PBXNativeTarget "contraint-testTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +445,7 @@
 				EA87D53B1A39AB200086C6F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

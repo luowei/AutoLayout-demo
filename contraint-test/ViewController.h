@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class MyInputView;
+@class InputBackgroundView;
+
 @interface ViewController : UIViewController
 
+
+@property(nonatomic, strong) MyInputView *myInputView;
+@property(nonatomic, strong) InputBackgroundView *backgroundView;
+@property(nonatomic, strong) NSMutableArray *verticalConstraints;
+@property(nonatomic, strong) NSMutableArray *horizonConstraints;
 
 @end
 
