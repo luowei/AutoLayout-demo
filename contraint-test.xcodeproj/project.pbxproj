@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BEF0658AC0CFA923CD93EFA4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		EA2A55C01A39DA8700D58986 /* KeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardView.h; sourceTree = "<group>"; };
 		EA2A55C11A39DA8700D58986 /* KeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardView.m; sourceTree = "<group>"; };
 		EA2A55C31A39DAAE00D58986 /* KeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KeyboardView.xib; path = ../KeyboardView.xib; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 				EA87D5151A39AB200086C6F7 /* contraint-test */,
 				EA87D52F1A39AB200086C6F7 /* contraint-testTests */,
 				EA87D5141A39AB200086C6F7 /* Products */,
+				BEF0658AC0CFA923CD93EFA4 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
