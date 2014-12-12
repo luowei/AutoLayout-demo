@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @class KeyboardView;
+@class FullKeyboard;
 
 @interface InputBackgroundView : UIView
 
 @property(nonatomic, strong) KeyboardView *keyboard;
-@property(nonatomic, strong) NSMutableArray *keyboardViewConstraints;
+@property(nonatomic, strong) FullKeyboard *fullKeyboard;
+
+@property(nonatomic, strong) NSMutableArray *keyboardViewConstraints ;
 @property(nonatomic, strong) NSLayoutConstraint *keyboardWidthConstraint;
+
+@property(nonatomic, strong) NSMutableArray *fullKeyboardConstraints;
 @end

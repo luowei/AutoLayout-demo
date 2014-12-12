@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,7 +15,38 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qZ-nD-YIo">
+                                <rect key="frame" x="178" y="48" width="99" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2nP-2W-3ab"/>
+                                    <constraint firstAttribute="width" constant="99" id="o85-5C-KO8"/>
+                                </constraints>
+                                <state key="normal" title="KeyboardView"/>
+                                <connections>
+                                    <action selector="keyboardClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="noa-HF-bvZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jT3-Gg-2mB">
+                                <rect key="frame" x="355" y="48" width="91" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="4bH-G9-VDm"/>
+                                    <constraint firstAttribute="height" constant="30" id="8JD-K9-VKe"/>
+                                </constraints>
+                                <state key="normal" title="FullKeyboard"/>
+                                <connections>
+                                    <action selector="fullKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aYO-uF-csQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="jT3-Gg-2mB" secondAttribute="centerX" constant="-100.5" id="3FE-85-UfF"/>
+                            <constraint firstItem="jT3-Gg-2mB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="DWb-Ad-7fW"/>
+                            <constraint firstItem="jT3-Gg-2mB" firstAttribute="centerY" secondItem="5qZ-nD-YIo" secondAttribute="centerY" id="K1o-Ru-GB9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5qZ-nD-YIo" secondAttribute="bottom" constant="522" id="LzT-ta-zZ7"/>
+                            <constraint firstItem="5qZ-nD-YIo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="ioo-yp-xbZ"/>
+                            <constraint firstAttribute="centerX" secondItem="5qZ-nD-YIo" secondAttribute="centerX" constant="72.5" id="nSh-cE-BpO"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

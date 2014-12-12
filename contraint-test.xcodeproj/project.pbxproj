@@ -18,6 +18,8 @@
 		EA87D5331A39AB200086C6F7 /* contraint_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA87D5321A39AB200086C6F7 /* contraint_testTests.m */; };
 		EA87D53E1A39AB5B0086C6F7 /* MyInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA87D53D1A39AB5B0086C6F7 /* MyInputView.m */; };
 		EA87D5411A39AB740086C6F7 /* InputBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA87D5401A39AB740086C6F7 /* InputBackgroundView.m */; };
+		EAC86F791A3A92E500258845 /* FullKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC86F781A3A92E500258845 /* FullKeyboard.xib */; };
+		EAC86F7C1A3A93C800258845 /* FullKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC86F7B1A3A93C800258845 /* FullKeyboard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,9 @@
 		EA87D53D1A39AB5B0086C6F7 /* MyInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInputView.m; sourceTree = "<group>"; };
 		EA87D53F1A39AB740086C6F7 /* InputBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputBackgroundView.h; sourceTree = "<group>"; };
 		EA87D5401A39AB740086C6F7 /* InputBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputBackgroundView.m; sourceTree = "<group>"; };
+		EAC86F781A3A92E500258845 /* FullKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullKeyboard.xib; sourceTree = "<group>"; };
+		EAC86F7A1A3A93C800258845 /* FullKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullKeyboard.h; sourceTree = "<group>"; };
+		EAC86F7B1A3A93C800258845 /* FullKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullKeyboard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,9 @@
 				EA2A55C01A39DA8700D58986 /* KeyboardView.h */,
 				EA2A55C11A39DA8700D58986 /* KeyboardView.m */,
 				EA2A55C31A39DAAE00D58986 /* KeyboardView.xib */,
+				EAC86F781A3A92E500258845 /* FullKeyboard.xib */,
+				EAC86F7A1A3A93C800258845 /* FullKeyboard.h */,
+				EAC86F7B1A3A93C800258845 /* FullKeyboard.m */,
 			);
 			path = "contraint-test";
 			sourceTree = "<group>";
@@ -219,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC86F791A3A92E500258845 /* FullKeyboard.xib in Resources */,
 				EA87D5221A39AB200086C6F7 /* Main.storyboard in Resources */,
 				EA2A55C41A39DAAE00D58986 /* KeyboardView.xib in Resources */,
 				EA87D5271A39AB200086C6F7 /* LaunchScreen.xib in Resources */,
@@ -245,6 +254,7 @@
 				EA87D5411A39AB740086C6F7 /* InputBackgroundView.m in Sources */,
 				EA2A55C21A39DA8700D58986 /* KeyboardView.m in Sources */,
 				EA87D51C1A39AB200086C6F7 /* AppDelegate.m in Sources */,
+				EAC86F7C1A3A93C800258845 /* FullKeyboard.m in Sources */,
 				EA87D5191A39AB200086C6F7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

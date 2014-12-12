@@ -10,10 +10,27 @@
 
 @implementation KeyboardView
 
+//+ (instancetype)sharedClient {
+//
+//    static KeyboardView *_keyboardView = nil;
+//
+//    static dispatch_once_t onceToken;
+//
+//    dispatch_once(&onceToken, ^{
+//
+//        _keyboardView = [[KeyboardView alloc] init];
+//
+//    });
+//
+//    return _keyboardView;
+//
+//}
+
+
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
-         self.backgroundColor = [UIColor grayColor];
+        self.backgroundColor = [UIColor grayColor];
         self.translatesAutoresizingMaskIntoConstraints = NO;
     }
 

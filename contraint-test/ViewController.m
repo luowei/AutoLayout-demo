@@ -10,8 +10,12 @@
 #import "MyInputView.h"
 #import "InputBackgroundView.h"
 #import "KeyboardView.h"
+#import "FullKeyboard.h"
 
 @interface ViewController ()
+- (IBAction)keyboardClick:(UIButton *)sender;
+
+- (IBAction)fullKeyboard:(UIButton *)sender;
 
 @end
 
@@ -23,6 +27,7 @@
 
     //添加 myInputView 相对于 self.view 的约束
     [self addMyInputViewConstraints];
+    
     //通知 myInputView 需要更新约束
     [self.myInputView setNeedsUpdateConstraints];
 }
@@ -37,6 +42,8 @@
     if (self.verticalConstraints) {
         [self.view removeConstraints:[NSArray arrayWithArray:self.verticalConstraints]];
         [self.verticalConstraints removeAllObjects];
+    }else{
+        self.verticalConstraints = @[].mutableCopy;
     }
     self.verticalConstraints = [NSLayoutConstraint
             constraintsWithVisualFormat:@"V:[myInputView(height)]|"
@@ -49,6 +56,8 @@
     if (!self.horizonConstraints) {
         [self.view removeConstraints:[NSArray arrayWithArray:self.horizonConstraints]];
         [self.horizonConstraints removeAllObjects];
+    }else{
+        self.horizonConstraints = @[].mutableCopy;
     }
     self.horizonConstraints = [NSLayoutConstraint
             constraintsWithVisualFormat:@"H:|[myInputView]|"
@@ -62,20 +71,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *controller = storyboard.instantiateInitialViewController;
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController *controller = storyboard.instantiateInitialViewController;
 
     self.myInputView = [[MyInputView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     [self.view addSubview:self.myInputView];
-//    [self.view bringSubviewToFront:self.myInputView];
 
     self.myInputView.keyboardBackgroundView = [[InputBackgroundView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     [self.myInputView addSubview:self.myInputView.keyboardBackgroundView];
-//    [self.myInputView bringSubviewToFront:self.myInputView.keyboardBackgroundView];
 
     KeyboardView *keyboard = [[NSBundle mainBundle] loadNibNamed:@"KeyboardView" owner:self options:nil][0];
     self.myInputView.keyboardBackgroundView.keyboard = keyboard;
     [self.myInputView.keyboardBackgroundView addSubview:keyboard];
+
+    FullKeyboard *fullKeyboard = [[NSBundle mainBundle] loadNibNamed:@"FullKeyboard" owner:self options:nil][0];
+    self.myInputView.keyboardBackgroundView.fullKeyboard = fullKeyboard;
+    [self.myInputView.keyboardBackgroundView addSubview:fullKeyboard];
 
 
     [self updateViewConstraints];
@@ -96,4 +107,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)keyboardClick:(UIButton *)sender {
+
+//    FullKeyboard *fullKeyboard = [[NSBundle mainBundle] loadNibNamed:@"FullKeyboard" owner:self options:nil][0];
+    [self.myInputView.keyboardBackgroundView.fullKeyboard removeFromSuperview];
+
+    if(!self.myInputView.keyboardBackgroundView.keyboard){
+        self.myInputView.keyboardBackgroundView.keyboard = [[NSBundle mainBundle] loadNibNamed:@"KeyboardView" owner:self options:nil][0];
+    }
+    [self.myInputView.keyboardBackgroundView addSubview:self.myInputView.keyboardBackgroundView.keyboard];
+
+    [self updateViewConstraints];
+}
+
+- (IBAction)fullKeyboard:(UIButton *)sender {
+//    KeyboardView *keyboard = [[NSBundle mainBundle] loadNibNamed:@"KeyboardView" owner:self options:nil][0];
+    [self.myInputView.keyboardBackgroundView.keyboard removeFromSuperview];
+
+    if(!self.myInputView.keyboardBackgroundView.fullKeyboard) {
+        self.myInputView.keyboardBackgroundView.fullKeyboard =  [[NSBundle mainBundle] loadNibNamed:@"FullKeyboard" owner:self options:nil][0];
+    }
+    [self.myInputView.keyboardBackgroundView addSubview:self.myInputView.keyboardBackgroundView.fullKeyboard];
+
+    [self updateViewConstraints];
+}
 @end
