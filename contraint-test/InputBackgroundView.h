@@ -10,6 +10,7 @@
 
 @class KeyboardView;
 @class FullKeyboard;
+@class KeyboardSelectPopView;
 
 @interface InputBackgroundView : UIView
 
@@ -20,4 +21,5 @@
 @property(nonatomic, strong) NSLayoutConstraint *keyboardWidthConstraint;
 
 @property(nonatomic, strong) NSMutableArray *fullKeyboardConstraints;
+@property(nonatomic, strong) KeyboardSelectPopView *keyboardSelectPopView;
 @end

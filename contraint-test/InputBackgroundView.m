@@ -9,6 +9,7 @@
 #import "InputBackgroundView.h"
 #import "KeyboardView.h"
 #import "FullKeyboard.h"
+#import "KeyboardSelectPopView.h"
 
 @implementation InputBackgroundView
 
@@ -28,14 +29,19 @@
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     CGFloat height = (CGFloat) (screenSize.height > screenSize.width ? 256 : 200);
 
+    [self addConstraintsWithKeyboard:self.keyboard screenSize:screenSize height:height];
+    [self addConstraintsWithKeyboard:self.fullKeyboard screenSize:screenSize height:height];
+    [self addConstraintsWithKeyboard:self.keyboardSelectPopView screenSize:screenSize height:height];
 
-    //给键盘添加约束
+}
 
-    if (self.keyboard && self.keyboard.superview &&
-            [self.keyboard.superview isEqual:self]) {
+- (void)addConstraintsWithKeyboard:(UIView *)keyboard  screenSize:(CGSize)screenSize height:(CGFloat)height {
+// keyboard
+    if (keyboard && keyboard.superview &&
+            [keyboard.superview isEqual:self]) {
 
         //给 keyboard 添加相对于 inputBackgroundView 的约束
-        [self addConstraintWithView:self.keyboard withWidth:screenSize.width - 20 toView:self];
+        [self addConstraintWithView:keyboard withWidth:screenSize.width - 20 toView:self];
 
         if(self.keyboardViewConstraints){
             [self removeConstraints:self.keyboardViewConstraints];
@@ -44,7 +50,7 @@
             self.keyboardViewConstraints = @[].mutableCopy;
         }
 
-        NSDictionary *dictionary = @{@"view" : self.keyboard};
+        NSDictionary *dictionary = @{@"view" : keyboard};
         [self.keyboardViewConstraints addObjectsFromArray:[NSLayoutConstraint
                 constraintsWithVisualFormat:@"|-10-[view]"
                                     options:(NSLayoutFormatOptions) 0
@@ -59,43 +65,9 @@
         [self addConstraints:[NSArray arrayWithArray:self.keyboardViewConstraints]];
 
         //通知 keyboard 需要更新约束
-        [self.keyboard setNeedsUpdateConstraints];
+        [keyboard setNeedsUpdateConstraints];
 
     }
-
-
-    if (self.fullKeyboard && self.fullKeyboard.superview &&
-            [self.fullKeyboard.superview isEqual:self]) {
-
-        //给 fullKeyboard 添加相对于 inputBackgroundView 的约束
-        [self addConstraintWithView:self.fullKeyboard withWidth:screenSize.width - 20 toView:self];
-
-        if(self.fullKeyboardConstraints){
-            [self removeConstraints:self.fullKeyboardConstraints];
-            [self.fullKeyboardConstraints removeAllObjects];
-        }else{
-            self.fullKeyboardConstraints = @[].mutableCopy;
-        }
-
-        NSDictionary *dictionary = @{@"view" : self.fullKeyboard};
-        [self.fullKeyboardConstraints addObjectsFromArray:[NSLayoutConstraint
-                constraintsWithVisualFormat:@"|-10-[view]"
-                                    options:(NSLayoutFormatOptions) 0
-                                    metrics:nil //@{@"height":@(self.height)}
-                                      views:dictionary]];
-        [self.fullKeyboardConstraints addObjectsFromArray:[NSLayoutConstraint
-                constraintsWithVisualFormat:@"V:|-10-[view(height)]-10-|"
-                                    options:(NSLayoutFormatOptions) 0
-                                    metrics:@{@"height" : @(height - 40 - 20)}
-                                      views:dictionary]];
-
-        [self addConstraints:[NSArray arrayWithArray:self.fullKeyboardConstraints]];
-
-        //通知 fullKeyboard 需要更新约束
-        [self.fullKeyboard setNeedsUpdateConstraints];
-
-    }
-
 }
 
 

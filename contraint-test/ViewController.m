@@ -11,6 +11,7 @@
 #import "InputBackgroundView.h"
 #import "KeyboardView.h"
 #import "FullKeyboard.h"
+#import "KeyboardSelectPopView.h"
 
 @interface ViewController ()
 - (IBAction)keyboardClick:(UIButton *)sender;
@@ -22,12 +23,48 @@
 @implementation ViewController
 
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+
+
+    //通知 view 需要更新约束
+    [self.view setNeedsUpdateConstraints];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController *controller = storyboard.instantiateInitialViewController;
+
+    self.myInputView = [[MyInputView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    [self.view addSubview:self.myInputView];
+
+    self.myInputView.keyboardBackgroundView = [[InputBackgroundView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    [self.myInputView addSubview:self.myInputView.keyboardBackgroundView];
+
+//    KeyboardView *keyboard = [[NSBundle mainBundle] loadNibNamed:@"KeyboardView" owner:self options:nil][0];
+//    self.myInputView.keyboardBackgroundView.keyboard = keyboard;
+//    [self.myInputView.keyboardBackgroundView addSubview:keyboard];
+//
+//    FullKeyboard *fullKeyboard = [[NSBundle mainBundle] loadNibNamed:@"FullKeyboard" owner:self options:nil][0];
+//    self.myInputView.keyboardBackgroundView.fullKeyboard = fullKeyboard;
+//    [self.myInputView.keyboardBackgroundView addSubview:fullKeyboard];
+//
+//    KeyboardSelectPopView *keyboardSelectPopView = [[NSBundle mainBundle] loadNibNamed:@"KeyboardSelectPopView" owner:self options:nil][0];
+//    self.myInputView.keyboardBackgroundView.keyboardSelectPopView = keyboardSelectPopView;
+//    [self.myInputView.keyboardBackgroundView addSubview:keyboardSelectPopView];
+    
+
+    [self updateViewConstraints];
+}
+
 - (void)updateViewConstraints {
     [super updateViewConstraints];
 
     //添加 myInputView 相对于 self.view 的约束
     [self addMyInputViewConstraints];
-    
+
     //通知 myInputView 需要更新约束
     [self.myInputView setNeedsUpdateConstraints];
 }
@@ -68,49 +105,9 @@
 }
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    UIViewController *controller = storyboard.instantiateInitialViewController;
-
-    self.myInputView = [[MyInputView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    [self.view addSubview:self.myInputView];
-
-    self.myInputView.keyboardBackgroundView = [[InputBackgroundView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    [self.myInputView addSubview:self.myInputView.keyboardBackgroundView];
-
-    KeyboardView *keyboard = [[NSBundle mainBundle] loadNibNamed:@"KeyboardView" owner:self options:nil][0];
-    self.myInputView.keyboardBackgroundView.keyboard = keyboard;
-    [self.myInputView.keyboardBackgroundView addSubview:keyboard];
-
-    FullKeyboard *fullKeyboard = [[NSBundle mainBundle] loadNibNamed:@"FullKeyboard" owner:self options:nil][0];
-    self.myInputView.keyboardBackgroundView.fullKeyboard = fullKeyboard;
-    [self.myInputView.keyboardBackgroundView addSubview:fullKeyboard];
-
-
-    [self updateViewConstraints];
-}
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
-
-
-
-    //通知 view 需要更新约束
-    [self.view setNeedsUpdateConstraints];
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)keyboardClick:(UIButton *)sender {
 
-//    FullKeyboard *fullKeyboard = [[NSBundle mainBundle] loadNibNamed:@"FullKeyboard" owner:self options:nil][0];
-    [self.myInputView.keyboardBackgroundView.fullKeyboard removeFromSuperview];
+    [self removeAllKeyboardSubViews];
 
     if(!self.myInputView.keyboardBackgroundView.keyboard){
         self.myInputView.keyboardBackgroundView.keyboard = [[NSBundle mainBundle] loadNibNamed:@"KeyboardView" owner:self options:nil][0];
@@ -121,8 +118,8 @@
 }
 
 - (IBAction)fullKeyboard:(UIButton *)sender {
-//    KeyboardView *keyboard = [[NSBundle mainBundle] loadNibNamed:@"KeyboardView" owner:self options:nil][0];
-    [self.myInputView.keyboardBackgroundView.keyboard removeFromSuperview];
+
+    [self removeAllKeyboardSubViews];
 
     if(!self.myInputView.keyboardBackgroundView.fullKeyboard) {
         self.myInputView.keyboardBackgroundView.fullKeyboard =  [[NSBundle mainBundle] loadNibNamed:@"FullKeyboard" owner:self options:nil][0];
@@ -130,5 +127,27 @@
     [self.myInputView.keyboardBackgroundView addSubview:self.myInputView.keyboardBackgroundView.fullKeyboard];
 
     [self updateViewConstraints];
+}
+
+- (IBAction)keyboardSelectPop:(UIButton *)sender {
+
+    [self removeAllKeyboardSubViews];
+
+    if(!self.myInputView.keyboardBackgroundView.keyboardSelectPopView) {
+        self.myInputView.keyboardBackgroundView.keyboardSelectPopView =  [[NSBundle mainBundle] loadNibNamed:@"KeyboardSelectPopView" owner:self options:nil][0];
+    }
+    [self.myInputView.keyboardBackgroundView addSubview:self.myInputView.keyboardBackgroundView.keyboardSelectPopView];
+    
+    [self updateViewConstraints];
+    
+}
+
+- (void)removeAllKeyboardSubViews {
+    for(UIView *view  in self.myInputView.keyboardBackgroundView.subviews){
+//        if(![view.class isKindOfClass:[UIView class]]){
+        if(![view isMemberOfClass:[UIButton class]]){
+            [view removeFromSuperview];
+        }
+    }
 }
 @end
